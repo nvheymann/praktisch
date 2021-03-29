@@ -43,9 +43,19 @@ class sqlite:
         self.conn = sqlite3.connect(self.datenbank)
         self.c = self.conn.cursor()
 
-    def table(self, tabelle1=None, tabelle2=None, tabelle3=None, tabelle4=None, tabelle5=None):
+    def table(self, tabelle1=None, tabelle2=None, tabelle3=None, tabelle4=None, tabelle5=None, sql=None):
 
-        if tabelle1 is not None:
+        if sql is not None:
+            datei=sql
+            datei=open(datei).read()
+            sql_datei = datei.split(";")
+            for command in sql_datei:
+                self.c.execute(command)
+                self.conn.commit()
+
+
+
+        elif tabelle1 is not None:
             self.c.execute(tabelle1)
             self.conn.commit()
 

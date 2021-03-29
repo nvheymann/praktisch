@@ -1,0 +1,19 @@
+
+
+
+Create table standort(
+    standort_id INTEGER  primary key autoincrement,
+    ort text
+);
+
+
+Create table helligkeitswerte
+(
+    licht_id integer not null primary key,
+    lichtwert Int,
+    zeitpunkt text,
+    standort_id int,
+    foreign key (standort_id) REFERENCES standort(standort_id)
+);
+
+
