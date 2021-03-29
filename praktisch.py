@@ -36,16 +36,34 @@ class p_mqtt:
             time.sleep(1)
 
 
-class sqlite():
-    def __init__(self,dbname):
-        self.dbname=dbname
-        self.datenbank=dbname+".db"
+class sqlite:
+    def __init__(self, dbname):
+        self.dbname = dbname
+        self.datenbank = dbname + ".db"
         self.conn = sqlite3.connect(self.datenbank)
         self.c = self.conn.cursor()
 
-    def table(self,sql):
-        self.c.execute(str(sql))
-        self.conn.commit()
+    def table(self, tabelle1=None, tabelle2=None, tabelle3=None, tabelle4=None, tabelle5=None):
 
+        if tabelle1 is not None:
+            self.c.execute(tabelle1)
+            self.conn.commit()
 
+        elif tabelle2 is not None:
+            self.c.execute(tabelle2)
+            self.conn.commit()
 
+        elif tabelle3 is not None:
+            self.c.execute(tabelle3)
+            self.conn.commit()
+
+        elif tabelle4 is not None:
+            self.c.execute(tabelle4)
+            self.conn.commit()
+
+        elif tabelle5 is not None:
+            self.c.execute(tabelle5)
+            self.conn.commit()
+
+        else:
+            print("Datenbank erstellt keine Tabellen eingefügt!!!")
