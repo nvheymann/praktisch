@@ -2,5 +2,5 @@ import praktisch
 
 
 
-praktisch.sqlite("Ampel").table(sql="Create_test.txt")
+print(praktisch.sqlite(dbname="Ampel").select(abfrage="Select * from standort;"))
 
